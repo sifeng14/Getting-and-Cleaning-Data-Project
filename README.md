@@ -1,13 +1,17 @@
 # Getting-and-Cleaning-Data-Project
-This file describes how run_analysis.R script works.
-  
-  First, download and unzip the data file from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip and rename the folder with "data".
-  Make sure the folder "data" and the run_analysis.R script are both in the current working directory.
-  
-  Second, use source("run_analysis.R") command in RStudio.
-  
-  Third, you will find two output files are generated in the current working directory:
-  merged_data.txt (7.9 Mb): it contains a data frame called cleanedData with 10299*68 dimension.
-  data_with_means.txt (220 Kb): it contains a data frame called result with 180*68 dimension.
-  
-  Finally, use data <- read.table("data_with_means.txt") command in RStudio to read the file. Since we are required to get the average of each variable for each activity and each subject, and there are 6 activities in total and 30 subjects in total, we have 180 rows with all combinations for each of the 66 features.
+
+This is the course project for the Getting and Cleaning Data Coursera course.
+The R script, `run_analysis.R`, does the following:
+
+1. Download the dataset if it does not already exist in the working directory
+2. Load the activity and feature info
+3. Loads both the training and test datasets, keeping only those columns which
+   reflect a mean or standard deviation
+4. Loads the activity and subject data for each dataset, and merges those
+   columns with the dataset
+5. Merges the two datasets
+6. Converts the `activity` and `subject` columns into factors
+7. Creates a tidy dataset that consists of the average (mean) value of each
+   variable for each subject and activity pair.
+
+The end result is shown in the file `tidy.txt`.
